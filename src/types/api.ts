@@ -8,8 +8,8 @@ export interface blogs {
   intro: string;
   created_at: string;
   author: authors;
-  //image: string;
-  url: string;
+  image: string;
+  //url: string;
 }
 export interface blogItem extends blogs {
   content: string;
