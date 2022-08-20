@@ -11,7 +11,6 @@ export default function CardBlog(props: blogs) {
   return (
     <Card
       sx={{
-        maxWidth: 420,
         borderRadius: "10px",
         fontFamily: `"Heebo",sansSerif'`,
       }}
@@ -52,6 +51,7 @@ export default function CardBlog(props: blogs) {
             borderRadius: "10px",
             padding: ".375rem .75rem",
             textTransform: "capitalize",
+            fontSize: "0.9rem",
           }}
         >
           Leer más

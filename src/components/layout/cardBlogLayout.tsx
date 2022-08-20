@@ -1,17 +1,19 @@
 import React from "react";
 import CardBlog from "../common/cardBlog";
 import Grid from "@mui/material/Grid";
-import { Box } from "@mui/material";
 import imagen from "../../assets/blog_pico.png";
 import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import PaginationBlogs from "../common/pagination";
 export default function CardBlogLayout() {
   return (
     <Paper
       sx={{
         p: 2,
         margin: "auto",
-        maxWidth: 960,
+        maxWidth: 900,
         flexGrow: 1,
+        boxShadow: "none",
       }}
     >
       {" "}
@@ -23,6 +25,21 @@ export default function CardBlogLayout() {
         justifyContent="center"
         alignContent={"center"}
       >
+        <Grid container sx={{ mt: 10 }}>
+          <Grid item xs={12}>
+            <Typography variant="h6" sx={{ color: "#20c997" }}>
+              Lo que estamos conversando
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              variant="h4"
+              sx={{ fontWeight: 800, fontSize: "2.5rem", color: "#262B47" }}
+            >
+              Blog
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid item xs={12} sm={6} md={6}>
           <CardBlog
             id={0}
@@ -84,6 +101,7 @@ export default function CardBlogLayout() {
           />
         </Grid>
       </Grid>
+      <PaginationBlogs count={5} />
     </Paper>
   );
 }
