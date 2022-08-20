@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardBlog from "../common/cardBlog";
 import Grid from "@mui/material/Grid";
 import imagen from "../../assets/blog_pico.png";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import PaginationBlogs from "../common/pagination";
+import { DataBlog } from "../../services/blogServices";
+import { blogs } from "../../types/api";
 export default function CardBlogLayout() {
+  const [blogItems, setBlogItems] = useState<blogs[]>([]);
+  const [isError, setIsError] = useState<boolean>(false);
+  useEffect(() => {
+    DataBlog.getItemsBlog()
+      .then((data: any) => {
+        setBlogItems(data);
+        console.log(data);
+      })
+      .catch((err: any) => {
+        setIsError(true);
+      });
+  });
   return (
     <Paper
       sx={{
@@ -101,7 +115,10 @@ export default function CardBlogLayout() {
           />
         </Grid>
       </Grid>
-      <PaginationBlogs count={5} />
+      <Grid item xs={12}>
+        {" "}
+        <PaginationBlogs count={5} />
+      </Grid>
     </Paper>
   );
 }

@@ -9,7 +9,11 @@ export default function PaginationBlog(props: { count: number }) {
     <Grid container justifyContent="center" alignContent={"center"}>
       <Grid item xs={12}>
         <Stack spacing={2} sx={{ mt: 3 }}>
-          <Pagination count={count} variant="outlined" />
+          <Pagination
+            count={count}
+            variant="outlined"
+            sx={{ display: "flex", justifyContent: "center" }}
+          />
         </Stack>
       </Grid>
     </Grid>
