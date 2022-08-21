@@ -7,118 +7,76 @@ import Typography from "@mui/material/Typography";
 import PaginationBlogs from "../common/pagination";
 import { DataBlog } from "../../services/blogServices";
 import { blogs } from "../../types/api";
+import blogImages from "../../types/images";
 export default function CardBlogLayout() {
   const [blogItems, setBlogItems] = useState<blogs[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   useEffect(() => {
     DataBlog.getItemsBlog()
-      .then((data: any) => {
-        setBlogItems(data);
-        console.log(data);
+      .then((response) => {
+        console.log(response, "data:");
+        setBlogItems(response);
+        console.log(blogItems, "variable de estado");
       })
       .catch((err: any) => {
         setIsError(true);
       });
-  });
+    return () => {};
+  }, []);
   return (
-    <Paper
-      sx={{
-        p: 2,
-        margin: "auto",
-        maxWidth: 900,
-        flexGrow: 1,
-        boxShadow: "none",
-      }}
-    >
+    <Grid container>
       {" "}
+      <Grid container sx={{ mt: 10 }}>
+        <Grid item xs={12}>
+          <Typography variant="h6" sx={{ color: "#20c997" }}>
+            Lo que estamos conversando
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 800, fontSize: "2.5rem", color: "#262B47" }}
+          >
+            Blog
+          </Typography>
+        </Grid>
+      </Grid>
       <Grid
         container
-        flexDirection="row"
-        spacing={3}
-        alignItems="stretch"
+        direction="row"
         justifyContent="center"
-        alignContent={"center"}
+        alignItems="stretch"
+        spacing={2}
       >
-        <Grid container sx={{ mt: 10 }}>
-          <Grid item xs={12}>
-            <Typography variant="h6" sx={{ color: "#20c997" }}>
-              Lo que estamos conversando
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography
-              variant="h4"
-              sx={{ fontWeight: 800, fontSize: "2.5rem", color: "#262B47" }}
-            >
-              Blog
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <CardBlog
-            id={0}
-            image={imagen}
-            title={" ¡Este pico está terrible! "}
-            intro={
-              " Soy pediatra y cofundadora de Docokids, llevo escuchando sobre gripas muchos años y he vivido picos respiratorios en el invierno de Estados Unidos. Puedo decir ¡este pico respiratorio en Colombia, está terrible! "
-            }
-            author={{ first_name: "Natalia", last_name: "Cano" }}
-            created_at={"01/02"}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <CardBlog
-            id={0}
-            image={imagen}
-            title={" ¡Este pico está terrible! "}
-            intro={
-              " Soy pediatra y cofundadora de Docokids, llevo escuchando sobre gripas muchos años y he vivido picos respiratorios en el invierno de Estados Unidos. Puedo decir ¡este pico respiratorio en Colombia, está terrible! "
-            }
-            author={{ first_name: "Natalia", last_name: "Cano" }}
-            created_at={"01/02"}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <CardBlog
-            id={0}
-            image={imagen}
-            title={" ¡Este pico está terrible! "}
-            intro={
-              " Soy pediatra y cofundadora de Docokids, llevo escuchando sobre gripas muchos años y he vivido picos respiratorios en el invierno de Estados Unidos. Puedo decir ¡este pico respiratorio en Colombia, está terrible! "
-            }
-            author={{ first_name: "Natalia", last_name: "Cano" }}
-            created_at={"01/02"}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <CardBlog
-            id={0}
-            image={imagen}
-            title={" ¡Este pico está terrible! "}
-            intro={
-              " Soy pediatra y cofundadora de Docokids, llevo escuchando sobre gripas muchos años y he vivido picos respiratorios en el invierno de Estados Unidos. Puedo decir ¡este pico respiratorio en Colombia, está terrible! "
-            }
-            author={{ first_name: "Natalia", last_name: "Cano" }}
-            created_at={"01/02"}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6}>
-          <CardBlog
-            id={0}
-            image={imagen}
-            title={" ¡Este pico está terrible! "}
-            intro={
-              " Soy pediatra y cofundadora de Docokids, llevo escuchando sobre gripas muchos años y he vivido picos respiratorios en el invierno de Estados Unidos. Puedo decir ¡este pico respiratorio en Colombia, está terrible! "
-            }
-            author={{ first_name: "Natalia", last_name: "Cano" }}
-            created_at={"01/02"}
-          />
-        </Grid>
+        <>
+          {isError ? (
+            <Grid item xs={12}>
+              Oops, ha ocurrido un error!
+            </Grid>
+          ) : (
+            blogItems.map((item: blogs, index: number) => (
+              <>
+                {
+                  <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <CardBlog
+                      id={item.id}
+                      title={item.title}
+                      image={blogImages[index]}
+                      author={item.author}
+                      created_at={item.created_at}
+                      intro={item.intro}
+                    />
+                  </Grid>
+                }
+              </>
+            ))
+          )}
+        </>
       </Grid>
       <Grid item xs={12}>
         {" "}
         <PaginationBlogs count={5} />
       </Grid>
-    </Paper>
+    </Grid>
   );
 }

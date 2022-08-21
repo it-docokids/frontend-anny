@@ -3,10 +3,10 @@ import { blogs } from "../types/api";
 
 const instance = axios.create({
   baseURL: "https://apidocokids.herokuapp.com/",
-  timeout: 15000,
+  timeout: 3000,
 });
 
-const responseBody = (response: AxiosResponse) => response.data;
+const responseBody = (response: AxiosResponse) => response.data.results;
 const request = {
   get: (url: string) => instance.get(url).then(responseBody),
 };

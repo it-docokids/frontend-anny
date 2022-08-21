@@ -15,13 +15,7 @@ export default function CardBlog(props: blogs) {
         fontFamily: `"Heebo",sansSerif'`,
       }}
     >
-      <CardMedia
-        component="img"
-        height="140"
-        image={props.image}
-        alt={props.title}
-        sx={{ height: "auto !important" }}
-      />
+      <CardMedia component="img" image={props.image} alt={props.title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           <b>{props.title}</b>
