@@ -36,7 +36,11 @@ export default function CardBlog(props: blogs) {
         </Typography>
 
         <Icon sx={{ color: "#919294" }}>visibility_outlined_icon</Icon>
-        <Typography variant="subtitle1" color="text.secondary">
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          sx={{ fontWeight: "400" }}
+        >
           {props.intro}
         </Typography>
       </CardContent>
