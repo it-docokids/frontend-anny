@@ -13,4 +13,6 @@ const request = {
 
 export const DataBlog = {
   getItemsBlog: (): Promise<blogs[]> => request.get("v1/home/blogs/"),
+  getArticle: (id: number): Promise<blogs[]> =>
+    request.get(`v1/home/blogs/?id=${id}`),
 };
