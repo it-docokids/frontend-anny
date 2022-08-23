@@ -7,12 +7,14 @@ import { DataBlog } from "../../services/blogServices";
 import { blogs } from "../../types/api";
 import blogImages from "../../types/images";
 import Progress from "../common/progress";
-
+import Imagen from "../../assets/blog_gripa.png";
 export default function CardBlogLayout() {
   const [blogItems, setBlogItems] = useState<blogs[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
-  const [page, setPage] = useState<Boolean>(false);
-  let start, end;
+  const [page, setPage] = useState<number>(0);
+  let newData: blogs[] = [];
+  let start: number = 0;
+  let end: number = 0;
   useEffect(() => {
     DataBlog.getItemsBlog()
       .then((response) => {
@@ -22,17 +24,27 @@ export default function CardBlogLayout() {
       })
       .catch((err: any) => {
         setIsError(true);
+        dataNew();
       });
     return () => {};
-  }, []);
-
+  }, [page]);
+  const handleClick = (inicio: number, final: number, page: number) => {
+    start = inicio;
+    end = final;
+    console.log("limites" + start + "-" + end + " paginas" + page);
+  };
+  function dataNew() {
+    let dataNew = blogItems.slice(start, end);
+    setBlogItems(dataNew);
+    console.log(dataNew, "Holi");
+  }
   return (
     <Grid
       container
       direction="row"
       justifyContent="center"
       maxWidth="1320px"
-      sx={{ backgroundColor: "white" }}
+      sx={{ backgroundColor: "white", height: "auto", padding: "20px" }}
     >
       {" "}
       <Grid container sx={{ mt: 10 }}>
@@ -82,10 +94,44 @@ export default function CardBlogLayout() {
             <Progress marginT={12} />
           )}
         </>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <CardBlog
+            id={27}
+            title={"titulo"}
+            image={Imagen}
+            author={{ first_name: "Anny", last_name: "Rondon" }}
+            created_at={"01/02"}
+            intro={"Intro"}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <CardBlog
+            id={27}
+            title={"titulo"}
+            image={Imagen}
+            author={{ first_name: "Anny", last_name: "Rondon" }}
+            created_at={"01/02"}
+            intro={"Intro"}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <CardBlog
+            id={27}
+            title={"titulo"}
+            image={Imagen}
+            author={{ first_name: "Anny", last_name: "Rondon" }}
+            created_at={"01/02"}
+            intro={"Intro"}
+          />
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         {" "}
-        <PaginationBlogs count={8} lengthBlogItem={blogItems.length} />
+        <PaginationBlogs
+          count={8}
+          lengthBlogItem={blogItems.length}
+          handleClick={handleClick}
+        />
       </Grid>
     </Grid>
   );

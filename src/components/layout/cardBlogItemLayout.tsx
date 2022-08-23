@@ -2,22 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectId } from "../../store/store";
 import { DataBlog } from "../../services/blogServices";
-import { blogs } from "../../types/api";
+import { blogItem } from "../../types/api";
 import CardMedia from "@mui/material/CardMedia";
 import imagen from "../../assets/blog_vacuna.png";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Progress from "../common/progress";
 export default function CardBlogItemLayout() {
-  const [article, setArticle] = useState<blogs[]>([]);
+  const [article, setArticle] = useState<blogItem[]>([]);
+  const [isError, setIsError] = useState<boolean>(false);
   let id = useSelector(selectId);
   useEffect(() => {
     DataBlog.getArticle(id)
       .then((response) => {
         setArticle(response);
-        console.log(article);
+        console.log(article[0].content, "Data");
       })
-      .catch((err: any) => {});
+      .catch((err: any) => {
+        setIsError(true);
+      });
     return () => {};
   }, []);
   return (
@@ -26,7 +30,7 @@ export default function CardBlogItemLayout() {
       direction="row"
       justifyContent="center"
       maxWidth="1320px"
-      sx={{ backgroundColor: "white" }}
+      sx={{ backgroundColor: "white", height: "auto" }}
     >
       {" "}
       <Grid container sx={{ mt: 10 }}>
@@ -48,13 +52,18 @@ export default function CardBlogItemLayout() {
             Blog
           </Typography>
         </Grid>
+        <>
+          {isError ? (
+            <Grid item xs={12}>
+              Oops, ha ocurrido un error!
+            </Grid>
+          ) : article.length ? (
+            article.map((item: blogItem, index: number) => <></>)
+          ) : (
+            <Progress marginT={12} />
+          )}
+        </>
       </Grid>
-      <Card
-        sx={{
-          borderRadius: "10px",
-          height: "100% !important",
-        }}
-      ></Card>
     </Grid>
   );
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { blogs } from "../types/api";
+import { blogs, blogItem } from "../types/api";
 
 const instance = axios.create({
   baseURL: "https://apidocokids.herokuapp.com/",
@@ -13,6 +13,6 @@ const request = {
 
 export const DataBlog = {
   getItemsBlog: (): Promise<blogs[]> => request.get("v1/home/blogs/"),
-  getArticle: (id: number): Promise<blogs[]> =>
+  getArticle: (id: number): Promise<blogItem[]> =>
     request.get(`v1/home/blogs/?id=${id}`),
 };
