@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { selectId } from "../../store/store";
 import { DataBlog } from "../../services/blogServices";
 import { blogItem } from "../../types/api";
-import CardMedia from "@mui/material/CardMedia";
-import imagen from "../../assets/blog_vacuna.png";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";

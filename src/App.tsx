@@ -5,16 +5,18 @@ import Routing from "./components/router/routing";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import axios from "axios";
-import Footer from "./components/footer";
+import Footer from "./components/common/footer";
 axios.defaults.baseURL = process.env.REACT_APP_API;
 
 function App() {
   return (
-    <div className="App">
-      <Provider store={store}>
-        <Routing />
+    <div className="container">
+      <div className="App">
+        <Provider store={store}>
+          <Routing />
+        </Provider>
         <Footer />
-      </Provider>
+      </div>
     </div>
   );
 }

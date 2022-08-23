@@ -9,7 +9,7 @@ const initialState: Views = {
   n_view: 0,
   id_article: 0,
   start: 0,
-  end: 0,
+  end: 4,
 };
 export const articleViews = createSlice({
   name: "article",
@@ -29,7 +29,8 @@ export const articleViews = createSlice({
     },
   },
 });
-export const { updateView, updateID } = articleViews.actions;
+export const { updateView, updateID, updatePaginationS, updatePaginationE } =
+  articleViews.actions;
 export const store = configureStore({
   reducer: {
     article: articleViews.reducer,
