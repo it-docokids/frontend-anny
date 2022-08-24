@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import axios from "axios";
 import Footer from "./components/common/footer";
+import Arrow from "./components/common/arrow";
+import Navbar from "./components/common/navbar";
 axios.defaults.baseURL = process.env.REACT_APP_API;
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
     <div className="container">
       <div className="App">
         <Provider store={store}>
+          <Navbar />
           <Routing />
+          <Arrow />
         </Provider>
         <Footer />
       </div>

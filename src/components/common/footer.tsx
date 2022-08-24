@@ -36,7 +36,7 @@ export default function Footer() {
         backgroundImage: `url(${figure})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-        height: "100vh",
+        height: "650px",
         backgroundColor: "#18b4b0",
         pt: "192px",
         pr: "48px",
@@ -92,7 +92,7 @@ export default function Footer() {
             {" "}
             Newsletter
           </Typography>
-          <Typography variant="body2" sx={{ fontWeight: 400 }}>
+          <Typography variant="body2" sx={{ fontWeight: 400, mb: 2 }}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             debitis tempora sapiente, saepe eos aspernatur.
           </Typography>

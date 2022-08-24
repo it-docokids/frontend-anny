@@ -47,7 +47,7 @@ export default function CardBlogLayout() {
       {" "}
       <Grid container sx={{ mt: 10 }}>
         <Grid item xs={12}>
-          <Typography variant="h6" sx={{ color: "#20c997", mb: "8px" }}>
+          <Typography variant="h6" sx={{ color: "#18b4b0", mb: "8px" }}>
             Lo que estamos conversando
           </Typography>
         </Grid>
