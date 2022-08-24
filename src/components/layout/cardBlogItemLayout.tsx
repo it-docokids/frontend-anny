@@ -27,8 +27,7 @@ export default function CardBlogItemLayout() {
       container
       direction="row"
       justifyContent="center"
-      maxWidth="1320px"
-      sx={{ backgroundColor: "white", height: "auto" }}
+      sx={{ backgroundColor: "white" }}
     >
       {" "}
       <Grid container sx={{ mt: 10 }}>

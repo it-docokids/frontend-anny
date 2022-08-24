@@ -38,105 +38,13 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar
-      position="absolute"
-      sx={{
+    <div
+      style={{
         background: "white",
         boxShadow: "0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important",
         width: "100%",
       }}
-    >
-      <Container>
-        <Toolbar disableGutters>
-          <Grid container>
-            {" "}
-            <img
-              src={logo}
-              style={{
-                width: "170px",
-                height: "44px",
-              }}
-            />
-            <Grid item xs={6} sx={{ display: { md: "none" } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    color: "#343a40",
-                    display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
-                  }}
-                >
-                  {page}
-                </Button>
-              ))}
-            </Grid>
-            <Grid item xs={2}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-                sx={{
-                  display: { xs: "flex", sm: "flex", md: "none", lg: "none" },
-                }}
-              >
-                <Icon
-                  sx={{
-                    color: "#343a40",
-                  }}
-                >
-                  menu_icon
-                </Icon>
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: "none",
-                  color: "#343a40 !important",
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      color: "#343a40 !important",
-                    }}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Grid>
-            <Grid item xs={2} md={6}>
-              <Button
-                sx={{
-                  color: "#343a40",
-                  display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
-                }}
-              >
-                Iniciar Sesión
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    ></div>
   );
 };
 export default Navbar;

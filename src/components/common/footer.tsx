@@ -36,7 +36,7 @@ export default function Footer() {
         backgroundImage: `url(${figure})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-        height: "650px",
+        height: "100vh",
         backgroundColor: "#18b4b0",
         pt: "192px",
         pr: "48px",
@@ -52,7 +52,7 @@ export default function Footer() {
           sx: { textAlign: "center" },
         }}
       >
-        <Grid item xs={12} sm={12} md={4} sx={{ fontWeight: 700 }}>
+        <Grid item xs={12} sm={12} md={4} sx={{ fontWeight: 700, mb: 2 }}>
           <Typography variant="h6"> Encuentranos en:</Typography>
           <IconButton aria-label="f1">
             <img src={icon_1} />
@@ -75,6 +75,7 @@ export default function Footer() {
             variant="h6"
             sx={{
               fontWeight: 700,
+              mb: 2,
             }}
           >
             {" "}
@@ -88,7 +89,7 @@ export default function Footer() {
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+          <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
             {" "}
             Newsletter
           </Typography>
@@ -134,10 +135,7 @@ export default function Footer() {
             borderTop: "1px solid rgba(256, 256, 256, .1)",
           }}
         >
-          <Typography
-            variant="subtitle1"
-            sx={{ fontWeight: 700, mt: 2, mb: 2 }}
-          >
+          <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 2 }}>
             {" "}
             Hecho por: Anny Rondón
           </Typography>

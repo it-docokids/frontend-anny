@@ -41,7 +41,6 @@ export default function CardBlogLayout() {
       container
       direction="row"
       justifyContent="center"
-      maxWidth="1320px"
       sx={{ backgroundColor: "white", height: "auto", padding: "20px" }}
     >
       {" "}
