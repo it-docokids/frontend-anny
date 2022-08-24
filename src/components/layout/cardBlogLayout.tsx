@@ -10,6 +10,7 @@ import Progress from "../common/progress";
 import Imagen from "../../assets/blog_gripa.png";
 export default function CardBlogLayout() {
   const [blogItems, setBlogItems] = useState<blogs[]>([]);
+
   const [isError, setIsError] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   let newData: blogs[] = [];

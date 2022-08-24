@@ -36,7 +36,7 @@ export default function Footer() {
         backgroundImage: `url(${figure})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-        height: "600px",
+        height: "100vh",
         backgroundColor: "#18b4b0",
         pt: "192px",
         pr: "48px",

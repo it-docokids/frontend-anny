@@ -20,3 +20,4 @@ a:hover {
  margin-bottom: 10px;
 }
 .css-6dpx96-MuiInputBase-root-MuiFilledInput-root:before {border-bottom: none !important;}
+.css-6dpx96-MuiInputBase-root-MuiFilledInput-root:after {border-bottom:none !important}
