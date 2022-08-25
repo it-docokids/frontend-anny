@@ -16,6 +16,7 @@ export default function CardBlog(props: blogs) {
   const dispatch = useDispatch();
   let id = useSelector(selectId);
   console.log(id, "redux");
+
   return (
     <Card
       sx={{
@@ -55,7 +56,7 @@ export default function CardBlog(props: blogs) {
         </Grid>
         <Grid item xs={12}>
           <CardActions>
-            <Link to="/blogs" style={{ textDecoration: "none !important" }}>
+            <Link to={`/blog`} style={{ textDecoration: "none !important" }}>
               {" "}
               <Button
                 size="small"

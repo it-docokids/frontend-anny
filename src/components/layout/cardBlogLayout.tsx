@@ -44,9 +44,12 @@ export default function CardBlogLayout() {
       sx={{ backgroundColor: "white", height: "auto", padding: "20px" }}
     >
       {" "}
-      <Grid container sx={{ mt: 10 }}>
+      <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h6" sx={{ color: "#18b4b0", mb: "8px" }}>
+          <Typography
+            variant="h6"
+            sx={{ color: "#18b4b0", mb: "8px", textAlign: "center" }}
+          >
             Lo que estamos conversando
           </Typography>
         </Grid>
@@ -58,13 +61,19 @@ export default function CardBlogLayout() {
               fontSize: "2.5rem",
               color: "#262B47",
               mb: "48px",
+              textAlign: "center",
             }}
           >
             Blog
           </Typography>
         </Grid>
       </Grid>
-      <Grid container direction="row" sx={{ maxWidth: "920px" }} spacing={3}>
+      <Grid
+        container
+        direction="row"
+        sx={{ maxWidth: "920px", textAlign: "center" }}
+        spacing={3}
+      >
         <>
           {isError ? (
             <Grid item xs={12}>

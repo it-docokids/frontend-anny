@@ -32,15 +32,19 @@ export default function Footer() {
   return (
     <Grid
       container
+      id="footer"
       sx={{
         backgroundImage: `url(${figure})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-        height: "100vh",
+        height: "100%",
+        md: { maxHeight: "550px !important" },
+        lg: { maxHeight: "600px !important" },
         backgroundColor: "#18b4b0",
         pt: "192px",
         pr: "48px",
         pl: "48px",
+        textAlign: "center",
       }}
     >
       <Grid
@@ -48,9 +52,9 @@ export default function Footer() {
         alignContent="center"
         sx={{
           color: "white",
-
-          sx: { textAlign: "center" },
+          sx: { textAlign: "center", pt: "100px" },
         }}
+        id="css-fcg5vz-MuiGrid-root"
       >
         <Grid item xs={12} sm={12} md={4} sx={{ fontWeight: 700, mb: 2 }}>
           <Typography variant="h6"> Encuentranos en:</Typography>
@@ -82,10 +86,10 @@ export default function Footer() {
             Acceso rápido
           </Typography>
           <Typography variant="body2" sx={{ fontWeight: 400 }}>
-            <a> &gt; Preguntas frecuentes</a>
-            <a>&gt;Otros servicios</a>
-            <a>&gt;Terminos y condiciones</a>
-            <a>&gt;Política de datos</a>
+            <a id="access_1"> &gt; Preguntas frecuentes</a>
+            <a id="access_2">&gt;Otros servicios</a>
+            <a id="access_3">&gt;Terminos y condiciones</a>
+            <a id="access_4">&gt;Política de datos</a>
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
@@ -135,7 +139,10 @@ export default function Footer() {
             borderTop: "1px solid rgba(256, 256, 256, .1)",
           }}
         >
-          <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 2 }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontWeight: 700, mt: 2, pb: 3 }}
+          >
             {" "}
             Hecho por: Anny Rondón
           </Typography>

@@ -3,7 +3,7 @@ export interface authors {
   last_name: string;
 }
 export interface blogs {
-  id: number;
+  id: string;
   title: string;
   intro: string;
   created_at: string;

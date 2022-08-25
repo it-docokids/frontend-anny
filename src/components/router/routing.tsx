@@ -6,7 +6,7 @@ export default function Routing() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CardBlogLayout />} />
-        <Route path="/blogs" element={<CardBlogItemLayout />} />
+        <Route path={`/blog`} element={<CardBlogItemLayout />} />
       </Routes>
     </BrowserRouter>
   );

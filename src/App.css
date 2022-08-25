@@ -1,16 +1,6 @@
-.container {
-height: 100vh;
-  background-color: #F0F6FF;
- display: flex;
-  text-align: center;
-  margin:0;
- justify-content: center;
- font-family: 'Jost',sans-serif;
-}
-.App{ width:1200px;margin:auto}
+
 .App a{
   text-decoration: none;
-  display: block;
   padding:3px
 
 }
@@ -19,5 +9,60 @@ a:hover {
  box-shadow: none; 
  margin-bottom: 10px;
 }
+
+#access_1,#access_2,#access_3,#access_4{
+display:block,
+}
 .css-6dpx96-MuiInputBase-root-MuiFilledInput-root:before {border-bottom: none !important;}
 .css-6dpx96-MuiInputBase-root-MuiFilledInput-root:after {border-bottom:none !important}
+.css-hyum1k-MuiToolbar-root {
+
+  justify-content: flex-end !important;
+}
+
+@media only screen and (max-width: 600px) {
+#content-blog-item{
+  padding-top: 10px !important;
+}}
+@media only screen and (min-width: 900px) {
+  #css-fcg5vz-MuiGrid-root{
+    padding-top: 100px !important;
+  }
+  #content-blog-item{
+padding-left: 192px;
+padding-right: 192px;
+
+  }
+  
+}
+@media only screen and (max-width: 899px) {
+ 
+  #image-article{
+   max-width: 300px;
+  }
+  #content-blog-item {
+    padding-left: 30px;
+    padding-right: 30px;
+    
+      }
+  }
+@media only screen and (min-width: 600px) {
+ 
+  #image-article{
+   max-width: 300px;
+  }
+  }
+
+@media only screen and (min-width: 900px) {
+ 
+  #image-article{
+   max-width: 500px;
+  }
+  }
+  @media only screen and (min-width: 1200px) {
+ 
+    #image-article{
+     max-width: 600px;
+    }
+    }
+ 
